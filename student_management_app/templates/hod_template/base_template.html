@@ -1,0 +1,235 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Student Management System</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}p">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.css' %}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+{% block custom_css %}
+{% endblock custom_css %}
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed  " >
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="{% url 'demo' %}"><i class="fas fa-bars">Home</i></a>
+      </li>
+{#      <li class="nav-item d-none d-sm-inline-block">#}
+{#        <a href="{% url 'do_login' %}" class="nav-link">Home</a>#}
+{#      </li>#}
+{#        </li>#}
+
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{% url 'homepag' %}" class="nav-link">Home</a>
+      </li>
+        <li class="nav-item d-none d-sm-inline-block">
+        <a href="{% url 'add_staff' %}" class="nav-link">Add Staff</a>
+      </li>
+        </li>
+        </li>
+{#      <li class="nav-item d-none d-sm-inline-block">#}
+{#        <a href="{% url 'add_student' %}" class="nav-link">Add Student</a>#}
+{#      </li>#}
+        <li class="nav-item d-none d-sm-inline-block">
+        <a href="{% url 'add_course' %}" class="nav-link">Add Course</a>
+      </li>
+        </li>
+          <li class="nav-item d-none d-sm-inline-block">
+        <a href="{% url 'manage_staff' %}" class="nav-link">Manage Staff</a>
+      </li>
+{#          <li class="nav-item d-none d-sm-inline-block">#}
+{#        <a href="{% url 'manage_student' %}" class="nav-link">Manage Student</a>#}
+{#      </li>#}
+        <li class="nav-item d-none d-sm-inline-block">
+        <a href="{% url 'manage_course' %}" class="nav-link">Manage Course</a>
+      </li>
+        </li>
+
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    {% include 'hod_template/notification_template.html' %}
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+ {% include 'hod_template/sidebar_template.html' %}
+
+
+  <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  {% include 'hod_template/content_header.html' %}
+
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">
+                {% block page_title %}
+
+                {% endblock page_title %}</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    {% block main_content %}
+    {% endblock main_content %}
+
+    <!-- /.content-header -->
+
+
+</div>
+  <!-- /.content-wrapper -->
+{# {% include 'homepage.html' %}#}
+ {% include 'hod_template/footer.html' %}
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+{# <!-- Footer Start -->#}
+{#    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">#}
+{#        <div class="container py-5">#}
+{#            <div class="row g-5">#}
+{#                <div class="col-lg-3 col-md-6">#}
+{#                    <h5 class="text-light mb-4">Address</h5>#}
+{#                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>#}
+{#                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>#}
+{#                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>#}
+{#                    <div class="d-flex pt-2">#}
+{#                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-twitter"></i></a>#}
+{#                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>#}
+{#                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-youtube"></i></a>#}
+{#                        <a class="btn btn-outline-light btn-social rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-lg-3 col-md-6">#}
+{#                    <h5 class="text-light mb-4">Services</h5>#}
+{#                    <a class="btn btn-link" href="">Cardiology</a>#}
+{#                    <a class="btn btn-link" href="">Pulmonary</a>#}
+{#                    <a class="btn btn-link" href="">Neurology</a>#}
+{#                    <a class="btn btn-link" href="">Orthopedics</a>#}
+{#                    <a class="btn btn-link" href="">Laboratory</a>#}
+{#                </div>#}
+{#                <div class="col-lg-3 col-md-6">#}
+{#                    <h5 class="text-light mb-4">Quick Links</h5>#}
+{#                    <a class="btn btn-link" href="">About Us</a>#}
+{#                    <a class="btn btn-link" href="">Contact Us</a>#}
+{#                    <a class="btn btn-link" href="">Our Services</a>#}
+{#                    <a class="btn btn-link" href="">Terms & Condition</a>#}
+{#                    <a class="btn btn-link" href="">Support</a>#}
+{#                </div>#}
+{#                <div class="col-lg-3 col-md-6">#}
+{#                    <h5 class="text-light mb-4">Newsletter</h5>#}
+{#                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>#}
+{#                    <div class="position-relative mx-auto" style="max-width: 400px;">#}
+{#                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">#}
+{#                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="container">#}
+{#            <div class="copyright">#}
+{#                <div class="row">#}
+{#                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">#}
+{#                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.#}
+{#                    </div>#}
+{#                    <div class="col-md-6 text-center text-md-end">#}
+{#                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->#}
+{#                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <!-- Footer End -->#}
+
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- ChartJS -->
+<script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
+<!-- Sparkline -->
+<script src="{% static 'plugins/sparklines/sparkline.js' %}"></script>
+<!-- JQVMap -->
+<script src="{% static 'plugins/jqvmap/jquery.vmap.min.js' %}"></script>
+<script src="{% static 'plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{% static 'plugins/moment/moment.min.js' %}"></script>
+<!-- daterangepicker -->
+<script src="{% static 'plugins/moment/moment.min.js' %}"></script>
+<script src="{% static 'plugins/daterangepicker/daterangepicker.js' %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<!-- Summernote -->
+<script src="{% static 'plugins/summernote/summernote-bs4.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.js' %}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'dist/js/demo.js' %}"></script>
+
+
+{% block custom_js %}
+{% endblock custom_js %}
+</body>
+</html>

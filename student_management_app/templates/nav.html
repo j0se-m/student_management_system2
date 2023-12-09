@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="{% url 'homepag' %}" >
+                    <button class="btn btn-info">Home</button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'add_staff' %}" >
+                    <button class="btn btn-info">ADD STAFF</button>
+                </a>
+            </li>
+             <li class="nav-item">
+                <a href="{% url 'add_student' %}" >
+                    <button class="btn btn-info">ADD STUDENT</button>
+                </a>
+            </li>
+             <li class="nav-item">
+                <a href="{% url 'add_course' %}" >
+                    <button class="btn btn-info">ADD COURSE</button>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
